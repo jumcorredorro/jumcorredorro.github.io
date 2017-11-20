@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Jonatan Parra</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+			<script  src="js/kinegrama.js"></script>
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+					<h1 id="logo"><a href="#">Computacion visual</a></h1>
+					<p>"Si buscas resultados distintos no hagas siempre lo mismo."<br />
+					Albert Einstein. </p>
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="#one" class="active">Introduccion</a></li>
+						<li><a href="#two">Codigo</a></li>
+						<li><a href="#three">Visual Hack</a></li>
+					</ul>
+				</nav>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="container">
+									<header class="major">
+										<h2>Kinegramas en P5.js</h2>
+										<p>Kinegramas</p>
+									</header>
+									<p>Estudio Ingeniera de Sistemas en la Universidad Nacional de Colombia, soy un desarrollador back-end. Soy innovador, trabajo en equipo, responsable y creativo.</p>
+
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two">
+								<div class="container">
+									<h3>Codigo.</h3>
+									<center>
+											<table align="left" bgcolor="#333333" border="10" cellspacing="1" cellpadding="7">
+												<tbody>
+													<tr>
+														<td valign="top">
+												  <p style="text-align: justify;">
+													<span style="color:#777777;">// Se precargan las 4 imagenes que serán usadas.</span>
+												  </p>
+															<p style="text-align: justify;">
+																<span style="color:#8e44ad;">function </span>
+													<span style="color:#2980b9  ;">preload</span>
+													<span style="color:#aaaaaa;">() {</span>
+												  </p>
+															<p style="text-align: justify; margin-left: 40px;">
+																<span style="color:#aaaaaa;">img0</span>
+													<span style="color:#00ffff;">=</span>
+													<span style="color:#2980b9  ;">loadImage</span>
+													<span style="color:#aaaaaa;">(</span>
+													<span style="color:#2ecc71 ;">"assets/c1.jpg"</span>
+													<span style="color:#aaaaaa;">)</span>
+												  </p>
+												  <p style="text-align: justify; margin-left: 40px;">
+													<span style="color:#aaaaaa;">img0</span>
+													<span style="color:#00ffff;">=</span>
+													<span style="color:#2980b9  ;">loadImage</span>
+													<span style="color:#aaaaaa;">(</span>
+													<span style="color:#2ecc71 ;">"assets/c2.jpg"</span>
+													<span style="color:#aaaaaa;">)</span>
+												  </p>
+												  <p style="text-align: justify; margin-left: 40px;">
+													<span style="color:#aaaaaa;">img0</span>
+													<span style="color:#00ffff;">=</span>
+													<span style="color:#2980b9  ;">loadImage</span>
+													<span style="color:#aaaaaa;">(</span>
+													<span style="color:#2ecc71 ;">"assets/c3.jpg"</span>
+													<span style="color:#aaaaaa;">)</span>
+												  </p>
+												  <p style="text-align: justify; margin-left: 40px;">
+													<span style="color:#aaaaaa;">img0</span>
+													<span style="color:#00ffff;">=</span>
+													<span style="color:#2980b9  ;">loadImage</span>
+													<span style="color:#aaaaaa;">(</span>
+													<span style="color:#2ecc71 ;">"assets/c4.jpg"</span>
+													<span style="color:#aaaaaa;">);</span>
+												  </p>
+												  <p style="text-align: justify;">
+													<span style="color:#aaaaaa;">}</span>
+												  </p>
+												  <p style="text-align: justify;">
+													<span style="color:#777777;">// Creamos un Canvas de tamaño 600 X 600.</span>
+												  </p>
+												  <p style="text-align: justify;">
+													<span style="color:#8e44ad;">function </span>
+													<span style="color:#2980b9  ;">setup</span>
+													<span style="color:#aaaaaa;">() {</span>
+												  </p>
+												  <p style="text-align: justify; margin-left: 40px;">
+													<span style="color:#2980b9  ;">createCanvas</span>
+													<span style="color:#aaaaaa;">(</span>
+													<span style="color:#dc7633;">600</span>
+													<span style="color:#aaaaaa;">,</span>
+													<span style="color:#dc7633;">600</span>
+													<span style="color:#aaaaaa;">);</span>
+												  </p>
+												  <p style="text-align: justify;">
+													<span style="color:#aaaaaa;">}</span>
+												  </p>
+												  <p style="text-align: justify;">
+													<span style="color:#8e44ad;">var </span>
+													<span style="color:#aaaaaa;">contador </span>
+													<span style="color:#00ffff;">= -</span>
+													<span style="color:#dc7633;">100</span>
+													<span style="color:#aaaaaa;">;</span>
+												  </p>
+												  <p style="text-align: justify;">
+													<span style="color:#8e44ad;">function </span>
+													<span style="color:#2980b9  ;">draw</span>
+													<span style="color:#aaaaaa;">() {</span>
+												  </p>
+												  <p style="text-align: justify; margin-left: 40px;">
+													<span style="color:#e74c3c;">img0</span>
+													<span style="color:#aaaaaa;">.</span>
+													<span style="color:#2980b9  ;">loadPixels</span>
+													<span style="color:#aaaaaa;">();</span>
+												  </p>
+												  <p style="text-align: justify; margin-left: 40px;">
+													<span style="color:#e74c3c;">img1</span>
+													<span style="color:#aaaaaa;">.</span>
+													<span style="color:#2980b9  ;">loadPixels</span>
+													<span style="color:#aaaaaa;">();</span>
+												  </p>
+												  <p style="text-align: justify; margin-left: 40px;">
+													<span style="color:#e74c3c;">img2</span>
+													<span style="color:#aaaaaa;">.</span>
+													<span style="color:#2980b9  ;">loadPixels</span>
+													<span style="color:#aaaaaa;">();</span>
+												  </p>
+												  <p style="text-align: justify; margin-left: 40px;">
+													<span style="color:#e74c3c;">img3</span>
+													<span style="color:#aaaaaa;">.</span>
+													<span style="color:#2980b9  ;">loadPixels</span>
+													<span style="color:#aaaaaa;">();</span>
+												  </p>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</center>
+								</div>
+							</section>
+
+						<!-- Three -->
+							<section id="three">
+								<div class="container">
+										<h3>Visual Hack.</h3>
+									</div>
+								</div>
+							</section>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
