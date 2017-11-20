@@ -1,12 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Jonatan Parra</title>
+		<title>Computación Visual</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
@@ -20,7 +15,7 @@
 			<section id="header">
 				<header>
 					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
-					<h1 id="logo"><a href="#">Computacion visual</a></h1>
+					<h1 id="logo"><a href="#">Computación visual</a></h1>
 					<p>"Si buscas resultados distintos no hagas siempre lo mismo."<br />
 					Albert Einstein. </p>
 				</header>
@@ -59,113 +54,221 @@
 								<div class="container">
 									<h3>Codigo.</h3>
 									<center>
-											<table align="left" bgcolor="#333333" border="10" cellspacing="1" cellpadding="7">
-												<tbody>
-													<tr>
-														<td valign="top">
-												  <p style="text-align: justify;">
-													<span style="color:#777777;">// Se precargan las 4 imagenes que serán usadas.</span>
-												  </p>
-															<p style="text-align: justify;">
-																<span style="color:#8e44ad;">function </span>
-													<span style="color:#2980b9  ;">preload</span>
-													<span style="color:#aaaaaa;">() {</span>
-												  </p>
-															<p style="text-align: justify; margin-left: 40px;">
-																<span style="color:#aaaaaa;">img0</span>
-													<span style="color:#00ffff;">=</span>
-													<span style="color:#2980b9  ;">loadImage</span>
-													<span style="color:#aaaaaa;">(</span>
-													<span style="color:#2ecc71 ;">"assets/c1.jpg"</span>
-													<span style="color:#aaaaaa;">)</span>
-												  </p>
-												  <p style="text-align: justify; margin-left: 40px;">
-													<span style="color:#aaaaaa;">img0</span>
-													<span style="color:#00ffff;">=</span>
-													<span style="color:#2980b9  ;">loadImage</span>
-													<span style="color:#aaaaaa;">(</span>
-													<span style="color:#2ecc71 ;">"assets/c2.jpg"</span>
-													<span style="color:#aaaaaa;">)</span>
-												  </p>
-												  <p style="text-align: justify; margin-left: 40px;">
-													<span style="color:#aaaaaa;">img0</span>
-													<span style="color:#00ffff;">=</span>
-													<span style="color:#2980b9  ;">loadImage</span>
-													<span style="color:#aaaaaa;">(</span>
-													<span style="color:#2ecc71 ;">"assets/c3.jpg"</span>
-													<span style="color:#aaaaaa;">)</span>
-												  </p>
-												  <p style="text-align: justify; margin-left: 40px;">
-													<span style="color:#aaaaaa;">img0</span>
-													<span style="color:#00ffff;">=</span>
-													<span style="color:#2980b9  ;">loadImage</span>
-													<span style="color:#aaaaaa;">(</span>
-													<span style="color:#2ecc71 ;">"assets/c4.jpg"</span>
-													<span style="color:#aaaaaa;">);</span>
-												  </p>
-												  <p style="text-align: justify;">
-													<span style="color:#aaaaaa;">}</span>
-												  </p>
-												  <p style="text-align: justify;">
-													<span style="color:#777777;">// Creamos un Canvas de tamaño 600 X 600.</span>
-												  </p>
-												  <p style="text-align: justify;">
-													<span style="color:#8e44ad;">function </span>
-													<span style="color:#2980b9  ;">setup</span>
-													<span style="color:#aaaaaa;">() {</span>
-												  </p>
-												  <p style="text-align: justify; margin-left: 40px;">
-													<span style="color:#2980b9  ;">createCanvas</span>
-													<span style="color:#aaaaaa;">(</span>
-													<span style="color:#dc7633;">600</span>
-													<span style="color:#aaaaaa;">,</span>
-													<span style="color:#dc7633;">600</span>
-													<span style="color:#aaaaaa;">);</span>
-												  </p>
-												  <p style="text-align: justify;">
-													<span style="color:#aaaaaa;">}</span>
-												  </p>
-												  <p style="text-align: justify;">
-													<span style="color:#8e44ad;">var </span>
-													<span style="color:#aaaaaa;">contador </span>
-													<span style="color:#00ffff;">= -</span>
-													<span style="color:#dc7633;">100</span>
-													<span style="color:#aaaaaa;">;</span>
-												  </p>
-												  <p style="text-align: justify;">
-													<span style="color:#8e44ad;">function </span>
-													<span style="color:#2980b9  ;">draw</span>
-													<span style="color:#aaaaaa;">() {</span>
-												  </p>
-												  <p style="text-align: justify; margin-left: 40px;">
-													<span style="color:#e74c3c;">img0</span>
-													<span style="color:#aaaaaa;">.</span>
-													<span style="color:#2980b9  ;">loadPixels</span>
-													<span style="color:#aaaaaa;">();</span>
-												  </p>
-												  <p style="text-align: justify; margin-left: 40px;">
-													<span style="color:#e74c3c;">img1</span>
-													<span style="color:#aaaaaa;">.</span>
-													<span style="color:#2980b9  ;">loadPixels</span>
-													<span style="color:#aaaaaa;">();</span>
-												  </p>
-												  <p style="text-align: justify; margin-left: 40px;">
-													<span style="color:#e74c3c;">img2</span>
-													<span style="color:#aaaaaa;">.</span>
-													<span style="color:#2980b9  ;">loadPixels</span>
-													<span style="color:#aaaaaa;">();</span>
-												  </p>
-												  <p style="text-align: justify; margin-left: 40px;">
-													<span style="color:#e74c3c;">img3</span>
-													<span style="color:#aaaaaa;">.</span>
-													<span style="color:#2980b9  ;">loadPixels</span>
-													<span style="color:#aaaaaa;">();</span>
-												  </p>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</center>
+							    	<table align="left" bgcolor="#333333" border="10" cellspacing="1" cellpadding="7">
+							    		<tbody>
+							    			<tr>
+							    				<td valign="top">
+							              <p style="text-align: justify;">
+							                <span style="color:#777777;">// Se precargan las 4 imagenes que serán usadas.</span>
+							              </p>
+							    					<p style="text-align: justify;">
+							    						<span style="color:#8e44ad;">function </span>
+							                <span style="color:#2980b9  ;">preload</span>
+							                <span style="color:#aaaaaa;">() {</span>
+							              </p>
+							    					<p style="text-align: justify; margin-left: 20px;">
+							    						<span style="color:#aaaaaa;">img1</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#2980b9  ;">loadImage</span>
+							                <span style="color:#aaaaaa;">(</span>
+							                <span style="color:#2ecc71 ;">"assets/c1.jpg"</span>
+							                <span style="color:#aaaaaa;">)</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#aaaaaa;">img2</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#2980b9  ;">loadImage</span>
+							                <span style="color:#aaaaaa;">(</span>
+							                <span style="color:#2ecc71 ;">"assets/c2.jpg"</span>
+							                <span style="color:#aaaaaa;">)</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#aaaaaa;">img3</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#2980b9  ;">loadImage</span>
+							                <span style="color:#aaaaaa;">(</span>
+							                <span style="color:#2ecc71 ;">"assets/c3.jpg"</span>
+							                <span style="color:#aaaaaa;">)</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#aaaaaa;">img4</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#2980b9  ;">loadImage</span>
+							                <span style="color:#aaaaaa;">(</span>
+							                <span style="color:#2ecc71 ;">"assets/c4.jpg"</span>
+							                <span style="color:#aaaaaa;">);</span>
+							              </p>
+							              <p style="text-align: justify;">
+							                <span style="color:#aaaaaa;">}</span>
+							              </p>
+							              <p style="text-align: justify;">
+							                <span style="color:#777777;">// Creamos un Canvas de tamaño 600 X 600.</span>
+							              </p>
+							              <p style="text-align: justify;">
+							                <span style="color:#8e44ad;">function </span>
+							                <span style="color:#2980b9  ;">setup</span>
+							                <span style="color:#aaaaaa;">() {</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#2980b9  ;">createCanvas</span>
+							                <span style="color:#aaaaaa;">(</span>
+							                <span style="color:#dc7633;">600</span>
+							                <span style="color:#aaaaaa;">,</span>
+							                <span style="color:#dc7633;">600</span>
+							                <span style="color:#aaaaaa;">);</span>
+							              </p>
+							              <p style="text-align: justify;">
+							                <span style="color:#aaaaaa;">}</span>
+							              </p>
+							              <p style="text-align: justify;">
+							                <span style="color:#8e44ad;">var </span>
+							                <span style="color:#aaaaaa;">contador </span>
+							                <span style="color:#00ffff;">= -</span>
+							                <span style="color:#dc7633;">100</span>
+							                <span style="color:#aaaaaa;">;</span>
+							              </p>
+							              <p style="text-align: justify;">
+							                <span style="color:#8e44ad;">function </span>
+							                <span style="color:#2980b9  ;">draw</span>
+							                <span style="color:#aaaaaa;">() {</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#e74c3c;">img1</span>
+							                <span style="color:#aaaaaa;">.</span>
+							                <span style="color:#2980b9  ;">loadPixels</span>
+							                <span style="color:#aaaaaa;">();</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#e74c3c;">img2</span>
+							                <span style="color:#aaaaaa;">.</span>
+							                <span style="color:#2980b9  ;">loadPixels</span>
+							                <span style="color:#aaaaaa;">();</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#e74c3c;">img3</span>
+							                <span style="color:#aaaaaa;">.</span>
+							                <span style="color:#2980b9  ;">loadPixels</span>
+							                <span style="color:#aaaaaa;">();</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#e74c3c;">img4</span>
+							                <span style="color:#aaaaaa;">.</span>
+							                <span style="color:#2980b9  ;">loadPixels</span>
+							                <span style="color:#aaaaaa;">();</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#2980b9  ;">loadPixels</span>
+							                <span style="color:#aaaaaa;">();</span>
+							              </p>
+							                <p style="text-align: justify; margin-left: 20px;">
+							                  <span style="color:#8e44ad;">for </span><span style="color:#aaaaaa;">(</span><span style="color:#8e44ad;">var </span><span style="color:#aaaaaa;">i</span><span style="color:#00ffff;"> = </span><span style="color:#dc7633;">0</span><span style="color:#aaaaaa;"> ; i </span>
+							                  <span style="color:#00ffff;"> < </span><span style="color:#dc7633;">4</span><span style="color:#00ffff;"> * </span><span style="color:#e74c3c;">img0</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">height</span>
+							                  <span style="color:#00ffff;"> * </span><span style="color:#e74c3c;">img0</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">width</span>
+							                  <span style="color:#aaaaaa;">; i</span>
+							                  <span style="color:#00ffff;">+=</span>
+							                  <span style="color:#dc7633;">4</span>
+							                  <span style="color:#aaaaaa;">) {</span>
+							                </p>
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#8e44ad;">if </span>
+							                <span style="color:#aaaaaa;">( ( ( i</span><span style="color:#00ffff;">/</span><span style="color:#dc7633;">4 </span><span style="color:#aaaaaa;">)</span><span style="color:#00ffff;"> %</span><span style="color:#dc7633;">12</span><span style="color:#aaaaaa;">)</span>
+							                <span style="color:#00ffff;"><</span><span style="color:#dc7633;">3</span><span style="color:#aaaaaa;">)</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 60px;">
+							                <span style="color:#aaaaaa;">aux</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#aaaaaa;">img1;</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#8e44ad;">else if </span>
+							                <span style="color:#aaaaaa;">( ( ( i</span><span style="color:#00ffff;">/</span><span style="color:#dc7633;">4 </span><span style="color:#aaaaaa;">)</span><span style="color:#00ffff;"> %</span><span style="color:#dc7633;">12</span><span style="color:#aaaaaa;">)</span>
+							                <span style="color:#00ffff;"><</span><span style="color:#dc7633;">6</span><span style="color:#aaaaaa;">)</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 60px;">
+							                <span style="color:#aaaaaa;">aux</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#aaaaaa;">img2;</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#8e44ad;">else if </span>
+							                <span style="color:#aaaaaa;">( ( ( i</span><span style="color:#00ffff;">/</span><span style="color:#dc7633;">4 </span><span style="color:#aaaaaa;">)</span><span style="color:#00ffff;"> %</span><span style="color:#dc7633;">12</span><span style="color:#aaaaaa;">)</span>
+							                <span style="color:#00ffff;"><</span><span style="color:#dc7633;">9</span><span style="color:#aaaaaa;">)</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 60px;">
+							                <span style="color:#aaaaaa;">aux</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#aaaaaa;">img3;</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#8e44ad;">else</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 60px;">
+							                <span style="color:#aaaaaa;">aux</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#aaaaaa;">img4;</span>
+							              </p>
+
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#aaaaaa;">pixels[i]</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#e74c3c;">aux</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">pixels</span><span style="color:#aaaaaa;">[i];</span>
+							              </p>
+
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#aaaaaa;">pixels[i</span><span style="color:#00ffff;">+</span><span style="color:#dc7633;">1</span><span style="color:#aaaaaa;">]</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#e74c3c;">aux</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">pixels</span><span style="color:#aaaaaa;">[i</span><span style="color:#00ffff;">+</span><span style="color:#dc7633;">1</span><span style="color:#aaaaaa;">];</span>
+							              </p>
+
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#aaaaaa;">pixels[i</span><span style="color:#00ffff;">+</span><span style="color:#dc7633;">2</span><span style="color:#aaaaaa;">]</span>
+							                <span style="color:#00ffff;">=</span>
+							                <span style="color:#e74c3c;">aux</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">pixels</span><span style="color:#aaaaaa;">[i</span><span style="color:#00ffff;">+</span><span style="color:#dc7633;">2</span><span style="color:#aaaaaa;">];</span>
+							              </p>
+
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#aaaaaa;">}</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#2980b9  ;">updatePixels</span>
+							                <span style="color:#aaaaaa;">();</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#aaaaaa;">contador</span><span style="color:#00ffff;">++</span><span style="color:#aaaaaa;">;</span>
+							              </p>
+
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#8e44ad;">for </span><span style="color:#aaaaaa;">(</span><span style="color:#8e44ad;">var </span><span style="color:#aaaaaa;">j</span><span style="color:#00ffff;"> = </span><span style="color:#dc7633;">0</span><span style="color:#aaaaaa;"> ; </span>
+							                <span style="color:#aaaaaa;">j</span><span style="color:#00ffff;"> < </span><span style="color:#dc7633;">1200</span><span style="color:#aaaaaa;"> ; </span>
+							                <span style="color:#aaaaaa;">j</span><span style="color:#00ffff;"> += </span><span style="color:#dc7633;">12</span><span style="color:#aaaaaa;"> ){ </span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#2980b9  ;">fill</span><span style="color:#aaaaaa;">(</span><span style="color:#dc7633;">0</span><span style="color:#aaaaaa;">);</span>
+							              </p>
+
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#2980b9  ;">rect</span><span style="color:#aaaaaa;">( contador</span><span style="color:#00ffff;">+</span><span style="color:#aaaaaa;">j ,</span>
+							                <span style="color:#dc7633;">0</span><span style="color:#aaaaaa;"> ,</span>
+							                <span style="color:#dc7633;">9</span><span style="color:#aaaaaa;"> ,</span>
+							                <span style="color:#dc7633;">600</span><span style="color:#aaaaaa;"> );</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#aaaaaa;">}</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 20px;">
+							                <span style="color:#8e44ad;">if </span><span style="color:#aaaaaa;">( contador</span><span style="color:#00ffff;"> >= </span><span style="color:#dc7633;">700 </span><span style="color:#aaaaaa;">)</span>
+							              </p>
+							              <p style="text-align: justify; margin-left: 40px;">
+							                <span style="color:#aaaaaa;">contador</span><span style="color:#00ffff;"> = -</span><span style="color:#dc7633;">100 </span><span style="color:#aaaaaa;">;</span>
+							              </p>
+							              <p style="text-align: justify; ">
+							                <span style="color:#aaaaaa;">}</span>
+							              </p>
+							          	</td>
+							    			</tr>
+							    		</tbody>
+							    	</table>
+							    </center>
 								</div>
 							</section>
 
