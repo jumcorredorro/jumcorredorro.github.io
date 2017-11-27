@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Computación Visual</title>
+		<title>Computación Paralela</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
@@ -10,20 +10,19 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body>
-			<script  src="js/kinegrama.js"></script>
 		<!-- Header -->
 			<section id="header">
 				<header>
 					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
-					<h1 id="logo"><a href="#">Computación visual</a></h1>
-					<p>"Si buscas resultados distintos no hagas siempre lo mismo."<br />
-					Albert Einstein. </p>
+					<h1 id="logo"><a href="#">Computación Paralela</a></h1>
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="#one" class="active">Introduccion</a></li>
-						<li><a href="#two">Codigo</a></li>
-						<li><a href="#three">Visual Hack</a></li>
+						<li><a href="#one" class="active"></a></li>
+						<li><a href="#two">Efecto Blur</a></li>
+						<li><a href="#three">Paralelización</a></li>
+						<li><a href="#four">Implementaciones</a></li>
+						<li><a href="#five">Instrucciones para ejecutar los programas</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -38,13 +37,8 @@
 							<section id="one">
 								<div class="container">
 									<header class="major">
-										<h2>Kinegramas en P5.js</h2>
-										<p>Kinegramas</p>
+										<h2>Wiki Computación Paralela</h2>
 									</header>
-                  <p>Los kinegramas son considerados antiguos pues existen referencias en postales desde alrededor de 1915, sin embargo, la patente de dicho invento se le atribuye a Rufus Butler Seder en 1998.</p><br>
-                  <p>Estos regularmente se basan en dos elementos: un dibujo procesado a forma de patrón de gráficos (fotogramas) que interviene en la ilusión de movimiento y una rejilla o malla de franjas, las cuales al ser deslizadas sobre el dibujo generan el efecto de movimiento. Los kinegramas funcionan debido a que generan un patrón de interferencias que nuestro cerebro interpreta como movimiento, lo que hace la rejilla es mostrar únicamente uno de los fotogramas tapando los demás y mientras se mueve muestra los fotogramas en el orden que se desee y se crea una ilusión de movimiento.</p><br>
-                  <p>Lo que se pretende con este visual hack es poder convertir cualquier secuencia lógica compuesta por 4 imágenes en un kinegrama funcional, esto se logra usando la librería de JavaScript “p5.js” y trabajando en primer lugar con una base desarrollada en Processing. Para conseguir convertir este conjunto de imágenes en la rejilla necesaria para la ilusión de movimiento se recorre cada una de las mismas por medio de un algoritmo que trabaja sobre los pixeles y crea un fondo con las posiciones correspondientes para cada una de los trozos de la imagen, este fondo es el patrón de gráficos que es recorrido por una rejilla y así se visualiza el movimiento en el kinegrama.
-                    </p>
 
 								</div>
 							</section>
@@ -52,231 +46,97 @@
 						<!-- Two -->
 							<section id="two">
 								<div class="container">
-									<h3>Codigo.</h3>
-									<center>
-							    	<table align="left" bgcolor="#333333" border="10" cellspacing="1" cellpadding="7">
-							    		<tbody>
-							    			<tr>
-							    				<td valign="top">
-							              <p style="text-align: justify;">
-							                <span style="color:#777777;">// Se precargan las 4 imagenes que serán usadas.</span>
-							              </p>
-							    					<p style="text-align: justify;">
-							    						<span style="color:#8e44ad;">function </span>
-							                <span style="color:#2980b9  ;">preload</span>
-							                <span style="color:#aaaaaa;">() {</span>
-							              </p>
-							    					<p style="text-align: justify; margin-left: 20px;">
-							    						<span style="color:#aaaaaa;">img1</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#2980b9  ;">loadImage</span>
-							                <span style="color:#aaaaaa;">(</span>
-							                <span style="color:#2ecc71 ;">"assets/c1.jpg"</span>
-							                <span style="color:#aaaaaa;">)</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#aaaaaa;">img2</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#2980b9  ;">loadImage</span>
-							                <span style="color:#aaaaaa;">(</span>
-							                <span style="color:#2ecc71 ;">"assets/c2.jpg"</span>
-							                <span style="color:#aaaaaa;">)</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#aaaaaa;">img3</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#2980b9  ;">loadImage</span>
-							                <span style="color:#aaaaaa;">(</span>
-							                <span style="color:#2ecc71 ;">"assets/c3.jpg"</span>
-							                <span style="color:#aaaaaa;">)</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#aaaaaa;">img4</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#2980b9  ;">loadImage</span>
-							                <span style="color:#aaaaaa;">(</span>
-							                <span style="color:#2ecc71 ;">"assets/c4.jpg"</span>
-							                <span style="color:#aaaaaa;">);</span>
-							              </p>
-							              <p style="text-align: justify;">
-							                <span style="color:#aaaaaa;">}</span>
-							              </p>
-							              <p style="text-align: justify;">
-							                <span style="color:#777777;">// Creamos un Canvas de tamaño 600 X 600.</span>
-							              </p>
-							              <p style="text-align: justify;">
-							                <span style="color:#8e44ad;">function </span>
-							                <span style="color:#2980b9  ;">setup</span>
-							                <span style="color:#aaaaaa;">() {</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#2980b9  ;">createCanvas</span>
-							                <span style="color:#aaaaaa;">(</span>
-							                <span style="color:#dc7633;">600</span>
-							                <span style="color:#aaaaaa;">,</span>
-							                <span style="color:#dc7633;">600</span>
-							                <span style="color:#aaaaaa;">);</span>
-							              </p>
-							              <p style="text-align: justify;">
-							                <span style="color:#aaaaaa;">}</span>
-							              </p>
-							              <p style="text-align: justify;">
-							                <span style="color:#8e44ad;">var </span>
-							                <span style="color:#aaaaaa;">contador </span>
-							                <span style="color:#00ffff;">= -</span>
-							                <span style="color:#dc7633;">100</span>
-							                <span style="color:#aaaaaa;">;</span>
-							              </p>
-							              <p style="text-align: justify;">
-							                <span style="color:#8e44ad;">function </span>
-							                <span style="color:#2980b9  ;">draw</span>
-							                <span style="color:#aaaaaa;">() {</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#e74c3c;">img1</span>
-							                <span style="color:#aaaaaa;">.</span>
-							                <span style="color:#2980b9  ;">loadPixels</span>
-							                <span style="color:#aaaaaa;">();</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#e74c3c;">img2</span>
-							                <span style="color:#aaaaaa;">.</span>
-							                <span style="color:#2980b9  ;">loadPixels</span>
-							                <span style="color:#aaaaaa;">();</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#e74c3c;">img3</span>
-							                <span style="color:#aaaaaa;">.</span>
-							                <span style="color:#2980b9  ;">loadPixels</span>
-							                <span style="color:#aaaaaa;">();</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#e74c3c;">img4</span>
-							                <span style="color:#aaaaaa;">.</span>
-							                <span style="color:#2980b9  ;">loadPixels</span>
-							                <span style="color:#aaaaaa;">();</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#2980b9  ;">loadPixels</span>
-							                <span style="color:#aaaaaa;">();</span>
-							              </p>
-							                <p style="text-align: justify; margin-left: 20px;">
-							                  <span style="color:#8e44ad;">for </span><span style="color:#aaaaaa;">(</span><span style="color:#8e44ad;">var </span><span style="color:#aaaaaa;">i</span><span style="color:#00ffff;"> = </span><span style="color:#dc7633;">0</span><span style="color:#aaaaaa;"> ; i </span>
-							                  <span style="color:#00ffff;"> < </span><span style="color:#dc7633;">4</span><span style="color:#00ffff;"> * </span><span style="color:#e74c3c;">img0</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">height</span>
-							                  <span style="color:#00ffff;"> * </span><span style="color:#e74c3c;">img0</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">width</span>
-							                  <span style="color:#aaaaaa;">; i</span>
-							                  <span style="color:#00ffff;">+=</span>
-							                  <span style="color:#dc7633;">4</span>
-							                  <span style="color:#aaaaaa;">) {</span>
-							                </p>
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#8e44ad;">if </span>
-							                <span style="color:#aaaaaa;">( ( ( i</span><span style="color:#00ffff;">/</span><span style="color:#dc7633;">4 </span><span style="color:#aaaaaa;">)</span><span style="color:#00ffff;"> %</span><span style="color:#dc7633;">12</span><span style="color:#aaaaaa;">)</span>
-							                <span style="color:#00ffff;"><</span><span style="color:#dc7633;">3</span><span style="color:#aaaaaa;">)</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 60px;">
-							                <span style="color:#aaaaaa;">aux</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#aaaaaa;">img1;</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#8e44ad;">else if </span>
-							                <span style="color:#aaaaaa;">( ( ( i</span><span style="color:#00ffff;">/</span><span style="color:#dc7633;">4 </span><span style="color:#aaaaaa;">)</span><span style="color:#00ffff;"> %</span><span style="color:#dc7633;">12</span><span style="color:#aaaaaa;">)</span>
-							                <span style="color:#00ffff;"><</span><span style="color:#dc7633;">6</span><span style="color:#aaaaaa;">)</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 60px;">
-							                <span style="color:#aaaaaa;">aux</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#aaaaaa;">img2;</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#8e44ad;">else if </span>
-							                <span style="color:#aaaaaa;">( ( ( i</span><span style="color:#00ffff;">/</span><span style="color:#dc7633;">4 </span><span style="color:#aaaaaa;">)</span><span style="color:#00ffff;"> %</span><span style="color:#dc7633;">12</span><span style="color:#aaaaaa;">)</span>
-							                <span style="color:#00ffff;"><</span><span style="color:#dc7633;">9</span><span style="color:#aaaaaa;">)</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 60px;">
-							                <span style="color:#aaaaaa;">aux</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#aaaaaa;">img3;</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#8e44ad;">else</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 60px;">
-							                <span style="color:#aaaaaa;">aux</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#aaaaaa;">img4;</span>
-							              </p>
-
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#aaaaaa;">pixels[i]</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#e74c3c;">aux</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">pixels</span><span style="color:#aaaaaa;">[i];</span>
-							              </p>
-
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#aaaaaa;">pixels[i</span><span style="color:#00ffff;">+</span><span style="color:#dc7633;">1</span><span style="color:#aaaaaa;">]</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#e74c3c;">aux</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">pixels</span><span style="color:#aaaaaa;">[i</span><span style="color:#00ffff;">+</span><span style="color:#dc7633;">1</span><span style="color:#aaaaaa;">];</span>
-							              </p>
-
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#aaaaaa;">pixels[i</span><span style="color:#00ffff;">+</span><span style="color:#dc7633;">2</span><span style="color:#aaaaaa;">]</span>
-							                <span style="color:#00ffff;">=</span>
-							                <span style="color:#e74c3c;">aux</span><span style="color:#aaaaaa;">.</span><span style="color:#e74c3c;">pixels</span><span style="color:#aaaaaa;">[i</span><span style="color:#00ffff;">+</span><span style="color:#dc7633;">2</span><span style="color:#aaaaaa;">];</span>
-							              </p>
-
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#aaaaaa;">}</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#2980b9  ;">updatePixels</span>
-							                <span style="color:#aaaaaa;">();</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#aaaaaa;">contador</span><span style="color:#00ffff;">++</span><span style="color:#aaaaaa;">;</span>
-							              </p>
-
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#8e44ad;">for </span><span style="color:#aaaaaa;">(</span><span style="color:#8e44ad;">var </span><span style="color:#aaaaaa;">j</span><span style="color:#00ffff;"> = </span><span style="color:#dc7633;">0</span><span style="color:#aaaaaa;"> ; </span>
-							                <span style="color:#aaaaaa;">j</span><span style="color:#00ffff;"> < </span><span style="color:#dc7633;">1200</span><span style="color:#aaaaaa;"> ; </span>
-							                <span style="color:#aaaaaa;">j</span><span style="color:#00ffff;"> += </span><span style="color:#dc7633;">12</span><span style="color:#aaaaaa;"> ){ </span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#2980b9  ;">fill</span><span style="color:#aaaaaa;">(</span><span style="color:#dc7633;">0</span><span style="color:#aaaaaa;">);</span>
-							              </p>
-
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#2980b9  ;">rect</span><span style="color:#aaaaaa;">( contador</span><span style="color:#00ffff;">+</span><span style="color:#aaaaaa;">j ,</span>
-							                <span style="color:#dc7633;">0</span><span style="color:#aaaaaa;"> ,</span>
-							                <span style="color:#dc7633;">9</span><span style="color:#aaaaaa;"> ,</span>
-							                <span style="color:#dc7633;">600</span><span style="color:#aaaaaa;"> );</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#aaaaaa;">}</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 20px;">
-							                <span style="color:#8e44ad;">if </span><span style="color:#aaaaaa;">( contador</span><span style="color:#00ffff;"> >= </span><span style="color:#dc7633;">700 </span><span style="color:#aaaaaa;">)</span>
-							              </p>
-							              <p style="text-align: justify; margin-left: 40px;">
-							                <span style="color:#aaaaaa;">contador</span><span style="color:#00ffff;"> = -</span><span style="color:#dc7633;">100 </span><span style="color:#aaaaaa;">;</span>
-							              </p>
-							              <p style="text-align: justify; ">
-							                <span style="color:#aaaaaa;">}</span>
-							              </p>
-							          	</td>
-							    			</tr>
-							    		</tbody>
-							    	</table>
-							    </center>
+									<h2>Efecto Blur</h2>
+									<p>El efecto blur o de desenfoque hace referencia a hacer una imagen borrosa siguiendo algún tipo de procedimiento
+										(Gauss) o simplemente un kernel, el cual en nuestro caso es un kernel en forma de cruz. Para lograr el efecto borroso
+										 se hace un promedio de los valores RGB de los píxeles que componen la cruz y este nuevo valor lo toma el píxel central
+										 de la cruz. </p>
+										 <div align="center">
+											 <img align="center" src="images/blur1.JPG" border=0>
+											 <p>Figura 1</p>
+										 </div>
+										 <p>En la figura 1 podemos ver una sección de una imagen vista con mucho zoom donde podemos ver 9 pixeles, cada uno con un color, en este caso, para facilidad de la explicación, tienen colores puros R(red) G(green) y B(blue), siendo la representación de estos en valores RGB:</p>
+										 <ul>
+										 	<li>R = (255,0,0)</li>
+											<li>G = (0, 255, 0)</li>
+											<li>B = (0, 0, 255)</li>
+										 </ul>
+										 <p>En la figura se puede observar una cruz dibujada en amarillo, está cruz representa el kernel que se usará para el efecto de blur, en este caso, un kernel de tamaño 3, entonces para calcular el nuevo valor que tendrá la celda del centro, se deben sumar los valores RGB de las 5 celdas que se encuentran dentro de la cruz y luego dividirlo sobre 5, en este ejemplo al sumarlas tenemos un total de (255, 255, 765), luego si dividimos cada valor sobre 5, nos da un valor RGB resultante de valor: (51, 51, 153) (figura 2) que sería el nuevo color del píxel central que estábamos analizando.</p>
+										 <div align="center">
+											 <img align="center" src="images/blur2.JPG" border=0>
+											 <p>Figura 2</p>
+										 </div>
+										 <b><p>Ejemplo del efecto blur:</p></b>
+										 <div align="center">
+											 <img align="center" src="images/perro1.JPG" border=0>
+											 <p>Figura 3</p>
+											 <img align="center" src="images/perro2.JPG" border=0>
+											 <p>Figura 4</p>
+										 </div>
+										 <p>En la figura 3 se puede ver la imagen original original y en la figura 4 la misma imagen después de aplicar el efecto de blur con un kernel de tamaño 11.</p>
 								</div>
 							</section>
 
 						<!-- Three -->
 							<section id="three">
 								<div class="container">
-										<h3>Visual Hack.</h3>
+									<h2>Paralelización</h2>
+									<p>La paralelización hace referencia a la forma en que se pueden ejecutar varias instrucciones al mismo tiempo en un computador para poder resolver un problema, lo que se hace es dividir un problema grande en varios problemas más pequeños que se puedan solucionar simultáneamente. Para llevar a cabo este proceso es necesario tener un procesador con varios núcleos,(un núcleo se refiere a una unidad capaz de realizar procesamiento de instrucciones independientemente) sea en CPU o en GPU, si bien es cierto que en general entre más núcleos se puedan usar el procesamiento será más rápido, existen casos en que no se le pasa suficiente carga a cada núcleo y el proceso tiene a ser más lento en vez de más rápido.</p>
+									<b><p>¿Por qué paralelizar?</p></b>
+									<p>Como se mencionó anteriormente, para realizar el blur se operan los 3 valores de RGB y por ejemplo, en la imagen más pequeña que es de 720 x 720 píxeles se tienen en total 720*720*3=1555200 “casillas” sobre las cuales se debe hallar el promedio para el valor central de la cruz. Esto hace de la aplicación de blur un proceso que requiere bastantes operaciones y justifica la paralelización de este algoritmo, hay que tener en cuenta que solamente se está hablando de la imagen más pequeña.</p>
+								</div>
+							</section>
+
+							<section id="four">
+								<div class="container">
+									<h2>Implementaciones</h2>
+									<p>Se implementó el algoritmo de blur de tres formas diferentes con el fin de realizar una comparación en los tiempos de ejecución con diferentes formas de paralelización en CPU y en GPU. Para trabajar con las imágenes se utilizó la librería de C++ OpenCV, que facilitó el cargar la información de la imagen para trabajar sobre el RGB de cada píxel junto con el crear y guardar la nueva imagen con el efecto blur ya aplicado.</p>
+									<b><p>Algoritmo en CPU con POSIX (threads):</p></b>
+									<p>En primer lugar se implementó el algoritmo con POSIX y sus threads, haciendo la división de carga respecto al alto de la imagen y con base en el número de hilos sobre los que se decida correr el algoritmo. Es decir si son 4 hilos el alto se parte en 4 y cada hilo trabaja sobre la parte que le corresponde; al final cada uno de los hilos espera a que los demás terminen de procesar su respectiva parte y luego guardan la nueva imagen con el efecto blur.</p>
+									<div align="center">
+										<img align="center" src="images/imp1.JPG" border=0>
+										<p>Figura 5, ejemplo división de carga con dos hilos</p>
+										<img align="center" src="images/imp2.JPG" border=0>
+										<p>Figura 6, ejemplo división de carga con cuatro hilos</p>
 									</div>
+									<b><p>Algoritmo en CPU con OpenMP:</p></b>
+									<p>Para la implementación del algoritmo con OpenMP se usa una base del mismo algoritmo usado en POSIX pero utilizando las facilidades para anidamiento paralelo que ofrecen OpenMP con schedule estático que hace una división de carga del alto de la imagen sobre el número de hilos con los que se corre el programa, los mismos ejemplos (Figuras 5 y 6) aplican para OpenMP.</p>
+									<b><p>Algoritmo en GPU con CUDA:</p></b>
+									<p>Sumado a las anteriores implementaciones esta se hace sobre GPU haciendo uso de una tarjeta NVIDIA y de su arquitectura para cálculo paralelo CUDA. En está implementación fue necesario dividir la carga de manera diferente, debido a la capacidad de la memoria compartida con la que se cuenta en la tarjeta gráfica, por eso, en este caso se realiza el proceso primero en cada fila de pixeles y luego en cada columna, dividiendo el número total de píxeles de la fila o columna entre el número de hilos por el número de bloques; Es decir, si la imagen tiene 720 píxeles de ancho y deseamos ejecutar el programa con 192 hilos en 2 bloques, realizamos la cuenta anteriormente dicha 720/(192*2)=1.8, aproximamos a 2, esto quiere decir cada hilo deberá realizar el trabajo en 2 píxeles por cada fila de la imagen, luego se realiza el mismo proceso pero por columnas.</p>
+								</div>
+							</section>
+
+							<section id="five">
+								<div class="container">
+									<h2>Instrucciones para la ejecutar los programas</h2>
+									<p>Para poder ejecutar los programas es necesario tener un sistema operativo linux ya sea Debian, Ubuntu, Fedora, etc. Es necesario tener instalada la librería OpenCV (instrucciones aqui: <a href="http://milq.github.io/install-opencv-ubuntu-debian/">http://milq.github.io/install-opencv-ubuntu-debian/</a> ), para el programa de CUDA es necesario tener una tarjeta gráfica NVIDIA y tener instalado CUDA tool-kit (<a href="https://developer.nvidia.com/cuda-downloads)">https://developer.nvidia.com/cuda-downloads)</a> </p>
+									<ol>
+										<li>
+											Clonar el repositorio de github siguiente: <br><a href="https://github.com/lfvalderrama/Blur-Effect">https://github.com/lfvalderrama/Blur-Effect</a>
+										</li>
+										<li>
+											Ingresar a alguna de las carpetas de la figura 7:
+											<div align="center">
+												<img align="center" src="images/cap1.JPG" border=0>
+												<p>Figura 7</p>
+											</div>
+										</li>
+										<li>
+											Modificar las variables dentro del archivo run.sh (figura 8) segun lo qué se quiera probar, las imágenes se deben encontrar dentro de la carpeta de la implementación  a probar.
+											<div align="center">
+												<img align="center" width="90%" src="images/cap2.JPG" border=0>
+												<p>Figura 8</p>
+											</div>
+										</li>
+										<li>
+											Abrir una terminal, y ejecutar el run.sh
+											<div align="center">
+												<img align="center" src="images/cap3.JPG" border=0>
+												<p>Figura 9</p>
+											</div>
+										</li>
+										<li>Finalmente en la carpeta de la implementación se encuentra la imagen modificada con el efecto blur.</li>
+									</ol>
 								</div>
 							</section>
 			</div>
